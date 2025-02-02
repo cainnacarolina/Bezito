@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu te amo, Bezito ❤️</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+        }
+        .love-message {
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeInOut 4s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createLoveMessage() {
+            const message = document.createElement("div");
+            message.classList.add("love-message");
+            message.textContent = "Eu te amo, Bezito ❤️";
+
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            message.style.left = `${x}px`;
+            message.style.top = `${y}px`;
+
+            document.body.appendChild(message);
+
+            setTimeout(() => {
+                message.remove();
+            }, 4000);
+        }
+
+        function startAnimation() {
+            for (let i = 0; i < 200; i++) {
+                setTimeout(createLoveMessage, i * 100);
+            }
+        }
+
+        startAnimation();
+    </script>
+</body>
+</html>
